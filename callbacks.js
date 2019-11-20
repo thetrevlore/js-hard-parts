@@ -1,5 +1,5 @@
 // Type JavaScript here and click "Run Code" or press Ctrl + s
-console.log('Hello, world!');
+// console.log('Hello, world!');
 
 
 // Challenge 1
@@ -8,8 +8,8 @@ function addTwo(num) {
 }
 
 // To check if you've completed it, uncomment these console.logs!
-console.log(addTwo(3));
-console.log(addTwo(10));
+// console.log(addTwo(3));
+// console.log(addTwo(10));
 
 
 // Challenge 2
@@ -18,8 +18,8 @@ function addS(word) {
 }
 
 // uncomment these to check your work
-console.log(addS('pizza'));
-console.log(addS('bagel'));
+// console.log(addS('pizza'));
+// console.log(addS('bagel'));
 
 
 // Challenge 3
@@ -31,7 +31,7 @@ function map(array, callback) {
   return newArr;
 }
 
-console.log(map([1, 2, 3], addTwo));
+// console.log(map([1, 2, 3], addTwo));
 
 
 // Challenge 4
@@ -47,7 +47,7 @@ const letters = ['a', 'b', 'c', 'd'];
 forEach(letters, function(char) {
   alphabet += char;
 });
-console.log(alphabet);   //prints 'abcd'
+// console.log(alphabet);   //prints 'abcd'
 
 //--------------------------------------------------
 // Extension
@@ -62,19 +62,50 @@ function mapWith(array, callback) {
 	// result.push(forEach(array, callback));
   return result;
 }
-console.log(mapWith([1, 2, 3], addTwo));
+// console.log(mapWith([1, 2, 3], addTwo));
 
 //Extension 2
 function reduce(array, callback, initialValue) {
-
+ let result = array[0];
+ let skipFirstEl = true;
+ if (initialValue || initialValue === 0) {
+   result = initialValue;
+   skipFirstEl = false;
+ }
+ forEach(array, (el) => {
+   if (skipFirstEl) {
+     result = el;
+     skipFirstEl = false;
+   } else {
+     result = callback(result, el);
+   }
+ })
+ console.log(result)
 }
+const nums = [4, 1, 3];
+const add = function(a, b) { return a + b; }
+// reduce(nums, add);   //-> 8
 
 //Extension 3
-function intersection(arrays) {
-
+function intersection(...arrays) {
+  let elHash = {};
+  let resultArr = [];
+  for (let i = 0; i < arrays.length; i++) {
+    let inputArr = arrays[i];
+    for (let j = 0; j < inputArr.length; j++) {
+      const el = inputArr[j];
+      if (elHash[el]) {
+        elHash[el] += 1;
+        if (elHash[el] === 3) resultArr.push(el);
+      } else {
+        elHash[el] = 1;
+      }
+    }
+  }
+  return resultArr;
 }
 
-// console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
+console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
 
 //Extension 4
