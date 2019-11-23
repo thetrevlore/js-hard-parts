@@ -21,7 +21,7 @@ console.log('End of Challenge 1');
 //             //
 /////////////////
 
-// /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+/* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 2');
 // ...your code below
 
@@ -46,12 +46,22 @@ console.log('End of Challenge 2');
 //             //
 /////////////////
 
- /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+/* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 3');
 // ...your code below
+function everyXsecxForYsecs(func, intSecs, totalSecs) {
+  // const int = setInterval(func, intSecs * 1000)
+  for (let i = 0; i < totalSecs / intSecs; i++) {
+    setTimeout(func, intSecs * 1000)
+  }
+  // setTimeout(() => clearInterval(int), totalSecs * 1000)
+}
 
+function sayHowdy() {
+  console.log('Howdy');
+}
 
-
+everyXsecxForYsecs(sayHowdy, 1, 5);
 
 
 console.log('End of Challenge 3');
