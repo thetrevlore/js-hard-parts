@@ -76,13 +76,23 @@ console.log('End of Challenge 3');
 //             //
 /////////////////
 
- /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+/* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 4');
 // ...your code below
 
+function myEach(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    cb(arr[i], i)
+  }
+}
 
+const delays = [2000, 5000, 0, 3500]
 
+function delayLog(delayTime, i) {
+  setTimeout(() => console.log(`printing element ${i}`), delayTime)
+}
 
+myEach(delays, delayLog)
 
 console.log('End of Challenge 4');
 // */// (do not alter this line)
@@ -95,7 +105,7 @@ console.log('End of Challenge 4');
 //             //
 /////////////////
 
- /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+// /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 5');
 // ...your code below
 
