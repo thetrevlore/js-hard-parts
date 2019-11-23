@@ -56,7 +56,7 @@ const jasCounter = outer();
 
 function addByX(x) {
 	function generatedFunc(input) {
-    console.log(input + x);
+    return input + x;
   }
   return generatedFunc;
 }
@@ -68,17 +68,17 @@ function addByX(x) {
 
 // now call addByTwo with an input of 2
 const addByTwo = addByX(2);
-addByTwo(1); //should return 3
-addByTwo(2); //should return 4
-addByTwo(3); //should return 5
+// addByTwo(1); //should return 3
+// addByTwo(2); //should return 4
+// addByTwo(3); //should return 5
 
-const addByThree = addByX(3);
-addByThree(1); //should return 4
-addByThree(2); //should return 5
+// const addByThree = addByX(3);
+// addByThree(1); //should return 4
+// addByThree(2); //should return 5
 
-const addByFour = addByX(4);
-addByFour(4); //should return 8
-addByFour(10); //should return 14
+// const addByFour = addByX(4);
+// addByFour(4); //should return 8
+// addByFour(10); //should return 14
 
 
 //--------------------------------------------------
@@ -86,15 +86,23 @@ addByFour(10); //should return 14
 //--------------------------------------------------
 
 function once(func) {
-
+  let funcOut;
+  return function (input) {
+    if (funcOut) {
+      return funcOut;
+    } else {
+      funcOut = func(input);
+      return funcOut;
+    }
+  }
 }
 
 const onceFunc = once(addByTwo);
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// console.log(onceFunc(4));  //should log 6
-// console.log(onceFunc(10));  //should log 6
-// console.log(onceFunc(9001));  //should log 6
+console.log(onceFunc(4));  //should log 6
+console.log(onceFunc(10));  //should log 6
+console.log(onceFunc(9001));  //should log 6
 
 
 function after(count, func) {
