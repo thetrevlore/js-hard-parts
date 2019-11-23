@@ -170,12 +170,16 @@ console.log('End of Challenge 6');
 //             //
 /////////////////
 
- /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+// /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 7');
 // ...your code below
 
+async function getBack(name) {
+  const band = await fetch(`rest.bandsintown.com/artists/${name}`);
+  console.log('band ->', band);
+}
 
-
+getBack('underoath');
 
 
 console.log('End of Challenge 7');
@@ -194,7 +198,24 @@ console.log('Start of Challenge 8');
 // ...your code below
 
 
+const Http = new XMLHttpRequest(); //creates new XHR object
+const url = 'https://rest.bandsintown.com/artists/sleepingwithsirens/events?app_id=jshp'; //url where the Sleeping With Sirens JSON can be found
+Http.open("GET", url); //initializes a newly-created request
+Http.send(); //sends the request to the server
 
+Http.onreadystatechange = function () { //when event is finished, call this function
+    if (this.readyState == 4 && this.status == 200) { //ensures task is done
+        var response = Http.responseText;
+        dataHandler(JSON.parse(response)); //parses the JSON received to construct the object described
+    }
+};
+
+function dataHandler(data) {
+    for (let i = 0; i < data.length; i++) {
+        $("#ch3").append(data[i].venue.name + ', ');//appends the correct section of our JSON into our HTML
+    }
+    $("#ch3").slice(0, -1); //takes off the extra comma
+}
 
 
 
@@ -215,7 +236,26 @@ console.log('Start of Challenge 9');
 
 
 
+const Http = new XMLHttpRequest(); //creates new XHR object
+const url = 'https://rest.bandsintown.com/artists/sleepingwithsirens/events?app_id=jshp&date=1990-01-01%2C2019-01-01'; //url where the Sleeping With Sirens JSON can be found
+Http.open("GET", url); //initializes a newly-created request
+Http.send(); //sends the request to the server
 
+Http.onreadystatechange = function () { //when event is finished, call this function
+    if (this.readyState == 4 && this.status == 200) { //ensures task is done
+        var response = Http.responseText;
+        dataHandler(JSON.parse(response)); //parses the JSON received to construct the object described
+    }
+};
+
+function dataHandler(data) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].venue.country === "United States") {
+            $("#ch4").append(data[i].venue.name + ', ');//appends the correct section of our JSON into our HTML
+        }
+    }
+    $("#ch4").slice(0, -1); //takes off the extra comma
+}
 
 
 
