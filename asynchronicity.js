@@ -109,8 +109,23 @@ console.log('End of Challenge 4');
 console.log('Start of Challenge 5');
 // ...your code below
 
+// function changeColor() {
+//   if (document.body.style.background === "rgb(221, 238, 255)") {
+//       document.body.style.background = "rgb(221,238,221)";
+//   } else {
+//       document.body.style.background = "rgb(221,238,255)";
+//   }
+// }
 
-
+// let activate = document.getElementById("activate");
+// let color = document.getElementById("color");
+// activate.addEventListener("click", function (event) {
+//   console.log("clicked #1");
+//   color.addEventListener("click", function (event) {
+//       console.log("clicked #2")
+//       changeColor();
+//   });
+// });
 
 // ...your code above
 document.body.style.background = '#def';
