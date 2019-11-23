@@ -131,13 +131,21 @@ function delay(func, wait) {
 
 
 function rollCall(names) {
-
+  let i = 0;
+  return function() {
+    if (i < names.length){
+      console.log(names[i]);
+      i++
+    } else {
+      console.log('Everyone accounted for');
+    }
+  }
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
-// rollCaller() // -> Should log 'Victoria'
-// rollCaller() // -> Should log 'Juan'
-// rollCaller() // -> Should log 'Ruth'
-// rollCaller() // -> Should log 'Everyone accounted for'
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+rollCaller() // -> Should log 'Victoria'
+rollCaller() // -> Should log 'Juan'
+rollCaller() // -> Should log 'Ruth'
+rollCaller() // -> Should log 'Everyone accounted for'
 
