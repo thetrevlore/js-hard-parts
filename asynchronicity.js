@@ -105,7 +105,7 @@ console.log('End of Challenge 4');
 //             //
 /////////////////
 
-// /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+/* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 5');
 // ...your code below
 
@@ -129,7 +129,7 @@ console.log('Start of Challenge 5');
 
 // ...your code above
 document.body.style.background = '#def';
-console.log('End of Challenge 3');
+console.log('End of Challenge 5');
 // */// (do not alter this line)
 
 
@@ -140,17 +140,24 @@ console.log('End of Challenge 3');
 //             //
 /////////////////
 
- /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
+// /* <<<=== Remove the first two slashes (//) to comment out this challenge when finished
 console.log('Start of Challenge 6');
 var dataReceived;
 
 function ajaxSimulate(id, callback) {
   var database = ['Aaron', 'Barbara', 'Chris'];
-
+  setTimeout(() => {
+    callback(database[id]);
+    console.log('dataRecieved 2 ->', dataReceived);
+  }, 0)
 }
-// ...your code below
 
+function storeData(data) {
+  dataReceived = data;
+}
 
+ajaxSimulate(1, storeData);
+console.log('dataRecieved 1 ->', dataReceived);
 
 console.log('End of Challenge 6');
 // */// (do not alter this line)
